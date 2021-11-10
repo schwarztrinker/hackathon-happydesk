@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
+import { BenefitsComponent } from './benefits/benefits.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
     FooterComponent,
     NavbarComponent,
     PreferencesComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    BenefitsComponent
   ],
   imports: [
     BrowserModule,
