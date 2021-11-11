@@ -11,6 +11,7 @@ import { PreferencesComponent } from './preferences/preferences.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { LoginComponent } from './login/login.component';
+import { DialogueComponent } from './dialogue/dialogue.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     PreferencesComponent,
     SlideshowComponent,
     BenefitsComponent,
-    LoginComponent
+    LoginComponent,
+    DialogueComponent
   ],
   imports: [
     BrowserModule,
