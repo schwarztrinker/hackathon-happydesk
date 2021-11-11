@@ -7,7 +7,8 @@
       </a>
 
       <div class="d-flex">
-        <a class="text-light mx-auto my-auto" href="login">Anmelden</a>>
+        <p class="text-light mx-auto my-auto me-2" href="/login" *ngIf="loginService.isLoggedIn">Max Mustermann </p>
+        <a class="text-light mx-auto my-auto me-2" href="/login" *ngIf="!loginService.isLoggedIn" >Anmelden </a>
         <i class="bi bi-person-circle me-2 text-light" style="font-size: 2rem;"></i>
       </div>
       
