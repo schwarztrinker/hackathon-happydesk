@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { PreferencesComponent } from './preferences/preferences.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,
     children: [
       {path: '',component: WelcomeMessageComponent},
-      {path: 'preferences', component: PreferencesComponent}
+      {path: 'preferences', component: PreferencesComponent},
+      {path: 'login', component: LoginComponent},
   ]},
 
   

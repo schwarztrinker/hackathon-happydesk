@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { BenefitsComponent } from './benefits/benefits.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BenefitsComponent } from './benefits/benefits.component';
     NavbarComponent,
     PreferencesComponent,
     SlideshowComponent,
-    BenefitsComponent
+    BenefitsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
