@@ -72,7 +72,74 @@ export class DialogueComponent {
   }
 
 
+  selectedStates = 0;
+  selectedCities = 0;
+   
+  cities:any = [];
+  buildings:any = [];
+   
+   
+  onSelectState(state_id: number) {
+  this.selectedStates = state_id;
+  this.selectedCities = 0;
+  this.buildings = [];
+  this.cities = this.getCities().filter((item) => {
+  return item.state_id === Number(state_id)
+  });
+  }
+   
+  onSelectCities(city_id: number) {
+  this.selectedCities = city_id;
+  this.buildings = this.getBuildings().filter((item) => {
+  return item.city_id === Number(city_id)
+  });
+  }
+   
+  getCountries() {
+  return [
+  { id: 1, name: 'Bayern' },
+  { id: 2, name: 'Hessen' },
+  { id: 3, name: 'NRW' }
+  ];
+  }
+   
+  getCities() {
+  return [
+  { id: 1, state_id: 1, name: 'Augsburg' },
+  { id: 2, state_id: 1, name: 'München' },
+  { id: 3, state_id: 1, name: 'Nürnberg' },
+  { id: 4, state_id: 1, name: 'Regensburg' },
+  { id: 5, state_id: 1, name: 'Würzburg' },
+  { id: 6, state_id: 2, name: 'Frankfurt' },
+  { id: 7, state_id: 2, name: 'Giessen' },
+{ id: 8, state_id: 3, name: 'Bielefeld' },
+ { id: 9, state_id: 3, name: 'Dortmund' },
+{ id: 10, state_id: 3, name: 'Düsseldort' },
+{ id: 11, state_id: 3, name: 'Köln' },
 
+]
+}
+ 
+getBuildings() {
+return [
+{ id: 1, city_id: 1, name: 'Filiale' },
+{ id: 2, city_id: 2, name: 'Filiale' },
+{ id: 3, city_id: 2, name: 'HV' },
+{ id: 4, city_id: 3, name: 'Filiale' },
+{ id: 5, city_id: 4, name: 'Filiale' },
+{ id: 6, city_id: 5, name: 'Filiale' },
+{ id: 9, city_id: 6, name: 'FBC' },
+{ id: 10, city_id: 6, name: 'Skyper' },
+{ id: 11, city_id: 6, name: 'Skyper Villa' },
+{ id: 12, city_id: 6, name: 'Trianon' },
+{ id: 13, city_id: 6, name: 'Ginnheim' },
+{ id: 14, city_id: 7, name: 'Filiale' },
+{ id: 15, city_id: 8, name: 'Filiale' },
+{ id: 16, city_id: 9, name: 'Filiale' },
+{ id: 17, city_id: 10, name: 'HV' },
+{ id: 18, city_id: 11, name: 'Filiale' },
+]
+}
 
 
 
