@@ -2,4 +2,11 @@ footer {
     height: 100px;
     bottom: 0;
     width: 100%;
+    
+    
+
+}
+
+.color {
+    background-color: rgb(163, 163, 163);
 }
