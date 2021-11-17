@@ -19,3 +19,10 @@ Webserver lokal starten
 $ ng serve --host 0.0.0.0 --disable-host-check
 localtunnel erzeugen und URL aus dem Log lesen
 $ npx localtunnel --port 4200
+
+
+## Deploy Angular App to Github Pages
+(Installation nur einmal nötig) npm i angular-cli-ghpages --save-dev
+
+ng build --prod --base-href https://schwarztrinker.github.io/hackathon-happydesk/
+npx angular-cli-ghpages --dir=dist/happy-desk

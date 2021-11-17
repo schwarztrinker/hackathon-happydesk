@@ -1,162 +1,153 @@
 <div class="card my-2">
-    <div class="container py-2">
-        <div class="row">
-          <div class="col-sm">
-            <h5>Standort</h5>
-            
-            
-            <div class="col-auto col-sm my-2">
-                <label class="visually-hidden" for="autoSizingInputGroup">City</label>
-                <div class="input-group">
-                    <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
-                    <select class="form-select" aria-label="Default select example">
-                    <option selected>Wähle deine Stadt</option>
-                    <option value="1">Frankfurt</option>
-                    <option value="2">Düsseldorf</option>
-                    <option value="3">München</option>
-                    </select>
-                </div>
+  <div class="container py-2">
+    <div class="row">
+      <div class="col-sm">
+        <h5>Standort</h5>
 
-            </div>
-                
-            <div class="col-auto col-sm  my-2">
-                <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
-                <div class="input-group">
-                    <div class="input-group-text"><i class="bi bi-house"></i></div>
-                    <select class="form-select" aria-label="Default select example">
-                    <option selected>Wähle deine Gebäude </option>
-                    <option value="1">Trianon</option>
-                    <option value="2">FBC</option>
-                    <option value="3">Skyper</option>
-                    </select>
-                </div>
-            </div>
 
+        <div class="col-auto col-sm my-2">
+          <label class="visually-hidden" for="autoSizingInputGroup">City</label>
+          <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Wähle deine Stadt</option>
+              <option value="1">Frankfurt</option>
+              <option value="2">Düsseldorf</option>
+              <option value="3">München</option>
+            </select>
           </div>
-          <div class="col-auto col-sm">
-                <h5>Datum</h5>
-                
-                    <div class="input-group">
-                        <span class="input-group-text">
-                            <i class="bi bi-calendar-week-fill"></i>
-                        </span>
-                        <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="TT.MM.JJJJ" required>
-                    </div>
-    
-         </div>
 
-          <div class="col">
-            Column 3
+        </div>
+
+        <div class="col-auto col-sm  my-2">
+          <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
+          <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-house"></i></div>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Wähle deine Gebäude </option>
+              <option value="1">Trianon</option>
+              <option value="2">FBC</option>
+              <option value="3">Skyper</option>
+            </select>
           </div>
         </div>
+
+      </div>
+      <div class="col-auto col-sm">
+        <h5>Datum</h5>
+
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-calendar-week-fill"></i>
+          </span>
+          <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="TT.MM.JJJJ" required>
+        </div>
+
       </div>
 
+      <div class="col">
+        Column 3
+      </div>
+    </div>
+  </div>
 
-    
-    
+
+
+
 
 </div>
 
 <div class="row">
-<div class="col-md-3">
+  <div class="col-md-3">
 
-<div class="card " >
-    <div class="card-header">
-        Technische Austattung
-    </div>
-    
-    <div class="mx-2">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          Mehr als 2 Monitore
-        </label>
+    <div class="card mb-2 ">
+      <div class="card-header">
+        Technische Austattung <i class="bi bi-tools"></i>
       </div>
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+
+      <div class="mx-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="this.filter.moreThanTwoMonitors"
+            (ngModelChange)="filterChange()" />
           <label class="form-check-label" for="flexCheckIndeterminate">
-            ergonomische Maus rechts
+            Mehr als zwei Monitore ({{ predictMoreThanTwoMonitors()}})
           </label>
-      </div>
-  
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+            [(ngModel)]="this.filter.ergonomicMouse" (ngModelChange)="filterChange()">
           <label class="form-check-label" for="flexCheckIndeterminate">
-            ergonomische Maus links
+            ergonomische Maus ({{ predictErgonomicMouse()}})
           </label>
-      </div>
-  
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          Dockingstation
-        </label>
-    </div>
-  
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          XXX
-        </label>
-    </div>
-  
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+            [(ngModel)]="this.filter.dockingstation" (ngModelChange)="filterChange()">
           <label class="form-check-label" for="flexCheckIndeterminate">
-            Großraum
+            Dockingstation  ({{ predictDockingStation()}})
           </label>
+        </div>
       </div>
-  
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+
+      <div class="card-header">
+        Arbeitsplatzumfeld <i class="bi bi-pc-display"></i>
+      </div>
+      <div class="mx-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+            [(ngModel)]="this.filter.singleOffice" (ngModelChange)="filterChange()">
           <label class="form-check-label" for="flexCheckIndeterminate">
-            Einzelbüro
+            Einzelbüro ({{ predictSingleOffice()}})
           </label>
-      </div>
-  
-      <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+            [(ngModel)]="this.filter.window" (ngModelChange)="filterChange()">
           <label class="form-check-label" for="flexCheckIndeterminate">
-            Fenster
+            Fensterplatz ({{ predictWindow()}})
           </label>
-      </div>
-  
-      <div class="form-check">
+        </div>
+
+        <!-- <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
           <label class="form-check-label" for="flexCheckIndeterminate">
             Gang
           </label>
+      </div> -->
+
       </div>
 
-    </div>
 
 
+      <div class="card-header ">
+        Sonstiges <i class="bi bi-columns"></i>
+      </div>
 
-    <div class="card-header">
-        Sonstiges
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          Fahrstuhlnähe
-        </label>
-    </div>
+      <div class="mx-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+          <label class="form-check-label" for="flexCheckIndeterminate">
+            Fahrstuhlnähe
+          </label>
+        </div>
 
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          Kantine im Gebäude
-        </label>
-    </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+          <label class="form-check-label" for="flexCheckIndeterminate">
+            Kantine im Gebäude
+          </label>
+        </div>
 
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-        <label class="form-check-label" for="flexCheckIndeterminate">
-          Cafeteria im Gebäude
-        </label>
-    </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+          <label class="form-check-label" for="flexCheckIndeterminate">
+            Cafeteria im Gebäude
+          </label>
+        </div>
 
-    <div class="form-check">
+        <!-- <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
         <label class="form-check-label" for="flexCheckIndeterminate">
           XXX
@@ -175,39 +166,43 @@
         <label class="form-check-label" for="flexCheckIndeterminate">
           XXX
         </label>
+    </div> -->
+      </div>
+
+
+
     </div>
 
-
-</div>
-
-</div>
-<div class="col">
-
-  <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Arbeitsplatzkonfiguration 1</h5>
-        <small>insgesamt 25 verfügbar</small>
-      </div>
-      <p class="mb-1">Fenster, mindestens 2 Monitore, alle weiteren "tags"</p>
-    
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Arbeitsplatzkonfiguration 2</h5>
-        <small class="text-muted">insgesamt 35 verfügbar</small>
-      </div>
-      <p class="mb-1">tag, tag, tag, tag</p>
-    
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Arbeitsplatzkonfiguration 3</h5>
-        <small class="text-muted">insgesamt 20 verfügbar</small>
-      </div>
-      <p class="mb-1">tag, tag, tag, tag</p>
-    </a>
   </div>
+  <div class="col ">
 
-</div>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action active" aria-current="true">
+        <i class="bi bi-arrow-90deg-down"></i> Wählen Sie hier ihren gewünschten Arbeitsplatz aus. (Aktuell mögliche
+        Ergebnisse: {{ filteredDesks.length }})
+      </a>
+      <a routerLink="/desk/{{desk.id}}" class="list-group-item list-group-item-action flex-column align-items-start"
+        *ngFor="let  desk of filteredDesks">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ desk.name}}</h5>
+          <small *ngIf="desk.available"> ✔ Verfügbar </small>
+          <small *ngIf="!desk.available"> ❌Aktuell nicht verfügbar </small>
+        </div>
+        <!-- <p class="">Ausstattung: </p> -->
+        <ul>
+          <li *ngIf="desk.moreThanTwoMonitors">Mehr als zwei Monitore </li>
+          <li *ngIf="desk.ergonomicMouse">Ergonomische Maus ist verfügbar </li>
+          <li *ngIf="desk.dockingstation">USB-C Dockingstation für Notebooks </li>
+          <li *ngIf="desk.window">Arbeitsplatz am Fenster </li>
+          <li *ngIf="desk.singleOffice">Arbeitsplatz befindet sich in einem Einzelbüro </li>
+
+
+        </ul>
+
+
+
+      </a>
+    </div>
+
+  </div>
 </div>

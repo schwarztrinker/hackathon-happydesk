@@ -7,10 +7,22 @@
       </a>
 
       <div class="d-flex">
-        <p class="text-light mx-auto my-auto me-2" href="/login" *ngIf="loginService.isLoggedIn">Max Mustermann </p>
-        <a class="text-light mx-auto my-auto me-2" href="/login" *ngIf="!loginService.isLoggedIn" >Anmelden </a>
+        <div class="nav-item dropdown " *ngIf="loginService.isLoggedIn">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" routerLink="reservations">Meine Reservierungen</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+        <p class="text-light mx-auto my-auto me-2" routerLink="login" *ngIf="loginService.isLoggedIn">Max Mustermann </p>
+        <a class="text-light mx-auto my-auto me-2" routerLink="login" *ngIf="!loginService.isLoggedIn" >Anmelden </a>
         <i class="bi bi-person-circle me-2 text-light" style="font-size: 2rem;"></i>
+        
       </div>
+      
       
     </div>    
   </nav>

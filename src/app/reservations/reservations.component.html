@@ -1,0 +1,23 @@
+<div class="card my-4 p-4 ">
+  <h4>Ihre Reservierungen:</h4>
+  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="assets/desk1.jpeg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ desk.name }}</h5>
+          <ul class="card-text">
+            <li *ngIf="desk.moreThanTwoMonitors">Mehr als zwei Monitore </li>
+            <li *ngIf="desk.ergonomicMouse">Ergonomische Maus ist verfügbar </li>
+            <li *ngIf="desk.dockingstation">USB-C Dockingstation für Notebooks </li>
+            <li *ngIf="desk.window">Arbeitsplatz am Fenster </li>
+            <li *ngIf="desk.singleOffice">Arbeitsplatz befindet sich in einem Einzelbüro </li>
+          </ul>
+          <p class="card-text"><small class="text-muted">Heute gebucht</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

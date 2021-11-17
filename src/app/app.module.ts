@@ -12,6 +12,10 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { LoginComponent } from './login/login.component';
 import { DialogueComponent } from './dialogue/dialogue.component';
+import { FormsModule } from '@angular/forms';
+import { DeskDetailComponent } from './desk-detail/desk-detail.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { DialogueComponent } from './dialogue/dialogue.component';
     SlideshowComponent,
     BenefitsComponent,
     LoginComponent,
-    DialogueComponent
+    DialogueComponent,
+    DeskDetailComponent,
+    ReservationsComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

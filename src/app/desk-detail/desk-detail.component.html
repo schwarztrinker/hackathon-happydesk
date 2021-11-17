@@ -1,0 +1,32 @@
+<div class="card my-4 p-4 ">
+  <a routerLink="/dialogue"><i class="bi bi-arrow-left-circle-fill px-3" style="font-size: 3rem;"></i></a>
+
+
+
+  <div class="row row-cols-1 row-cols-sm-2 my-3 px-5">
+      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+
+        <h5 class="card-title">Ihre Auswahl:</h5>
+        <p class="card-text"> Name: {{desk.name }}</p>
+        <p>Ausstattung: </p>
+        <ul>
+          <li *ngIf="desk.moreThanTwoMonitors">Mehr als zwei Monitore </li>
+          <li *ngIf="desk.ergonomicMouse">Ergonomische Maus ist verfügbar </li>
+          <li *ngIf="desk.dockingstation">USB-C Dockingstation für Notebooks </li>
+          <li *ngIf="desk.window">Arbeitsplatz am Fenster </li>
+          <li *ngIf="desk.singleOffice">Arbeitsplatz befindet sich in einem Einzelbüro </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+        <img class="mx-auto rounded mx-auto d-block" src="assets/desk1.jpeg" alt="Card image cap" style="max-height: 200px;" >
+      </div>
+
+
+  </div>
+
+  <a type="button" routerLink="/checkout" class="btn btn-primary btn-lg mx-5" *ngIf="desk.available" (click)="saveDeskToLocalStorage()">Arbeitsplatz verbindlich
+    buchen! </a>
+  <a type="button" routerLink="/checkout" class="btn btn-danger btn-lg mx-5 disabled" *ngIf="!desk.available">Arbeitsplatz
+    aktuell leider nicht buchbar! </a>
+
+</div>
