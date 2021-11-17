@@ -114,7 +114,7 @@ export class DialogueComponent {
   { id: 7, state_id: 2, name: 'Giessen' },
 { id: 8, state_id: 3, name: 'Bielefeld' },
  { id: 9, state_id: 3, name: 'Dortmund' },
-{ id: 10, state_id: 3, name: 'Düsseldort' },
+{ id: 10, state_id: 3, name: 'Düsseldorf' },
 { id: 11, state_id: 3, name: 'Köln' },
 
 ]
