@@ -1,19 +1,20 @@
 <div class="card my-2">
   <div class="container py-2">
     <div class="row">
-      <div class="col-sm">
+      <div class="col-sm py-2">
         <h5>Standort</h5>
 
 
         <div class="col-auto col-sm my-2">
           <label class="visually-hidden" for="autoSizingInputGroup">City</label>
           <div class="input-group">
-            <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Wähle deine Stadt</option>
-              <option value="1">Frankfurt</option>
+            <div class="input-group-text"><i class="bi bi-pin-map"></i></div>
+              <select [(ngModel)]="selectedStates" (change)="onSelectState($any($event.target).value)" class="form-select input-lg" id="country">
+              <option value = "0" >Wähle dein Bundesland</option>
+              <option value = {{item.id}} *ngFor="let item of getCountries()" onchange="onSelectCountry(item.id)">{{item.name}}</option>
+              <!-- <option value="1">Frankfurt</option>
               <option value="2">Düsseldorf</option>
-              <option value="3">München</option>
+              <option value="3">München</option> -->
             </select>
           </div>
 
@@ -22,32 +23,52 @@
         <div class="col-auto col-sm  my-2">
           <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
           <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
+              <select [(ngModel)]="selectedCities" (change)="onSelectCities($any($event.target).value)" class="form-select input-lg" id="country">
+        
+              <option value = "0" >Wähle deine Stadt</option>
+              <option value = {{item.id}} *ngFor="let item of cities">{{item.name}}</option>
+              <!-- <option value="1">Trianon</option>
+              <option value="2">FBC</option>
+              <option value="3">Skyper</option> -->
+            </select>
+          </div>
+        </div>
+
+        <div class="col-auto col-sm  my-2">
+          <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
+          <div class="input-group">
             <div class="input-group-text"><i class="bi bi-house"></i></div>
             <select class="form-select" aria-label="Default select example">
-              <option selected>Wähle deine Gebäude </option>
-              <option value="1">Trianon</option>
+              <option value = "0" >Wähle dein Gebäude </option>
+              <option value = {{item.id}} *ngFor="let item of buildings">{{item.name}}</option>
+              <!-- <option value="1">Trianon</option>
               <option value="2">FBC</option>
-              <option value="3">Skyper</option>
+              <option value="3">Skyper</option> -->
             </select>
           </div>
         </div>
 
       </div>
-      <div class="col-auto col-sm">
+      <div class="col-auto col-sm py-2">
         <h5>Datum</h5>
 
         <div class="input-group">
           <span class="input-group-text">
             <i class="bi bi-calendar-week-fill"></i>
           </span>
-          <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="TT.MM.JJJJ" required>
+          <input type="date" class="form-control datepicker" id="date" placeholder="TT.MM.JJJJ" required>
         </div>
 
-    <!--</div>
-      <div class="col">
-        Column 3
+    </div>
+      <div class="col py-2">
+        <h5>Wiederkehrende Buchung</h5>
+        <input class="form-check-input mx-1" type="checkbox" id="weekly" />
+        <label class="form-check-label" for="weekly">
+          wöchentliche Wiederholung
+        </label>
       </div>
-    </div>-->
+    </div>
   </div>
 
 
@@ -66,11 +87,12 @@
 
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" [(ngModel)]="this.filter.moreThanTwoMonitors"
-            (ngModelChange)="filterChange()" />
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="twomonitors">
             Mehr als zwei Monitore ({{ predictMoreThanTwoMonitors()}})
           </label>
+          <input class="form-check-input" type="checkbox" [(ngModel)]="this.filter.moreThanTwoMonitors" id="twomonitors"
+            (ngModelChange)="filterChange()" />
+          
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
@@ -81,9 +103,9 @@
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="dockingstation"
             [(ngModel)]="this.filter.dockingstation" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="dockingstation">
             Dockingstation  ({{ predictDockingStation()}})
           </label>
         </div>
@@ -94,17 +116,17 @@
       </div>
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="singleOffice"
             [(ngModel)]="this.filter.singleOffice" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="singleOffice">
             Einzelbüro ({{ predictSingleOffice()}})
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="window"
             [(ngModel)]="this.filter.window" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="window">
             Fensterplatz ({{ predictWindow()}})
           </label>
         </div>
@@ -126,22 +148,22 @@
 
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="elevator">
+          <label class="form-check-label" for="elevator">
             Fahrstuhlnähe
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="kasino">
+          <label class="form-check-label" for="kasino">
             Kantine im Gebäude
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="cafeteria">
+          <label class="form-check-label" for="cafeteria">
             Cafeteria im Gebäude
           </label>
         </div>
