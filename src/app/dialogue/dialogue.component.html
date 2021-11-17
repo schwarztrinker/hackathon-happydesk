@@ -40,14 +40,18 @@
           <span class="input-group-text">
             <i class="bi bi-calendar-week-fill"></i>
           </span>
-          <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="TT.MM.JJJJ" required>
+          <input type="date" data-datepicker="" class="form-control" id="date" placeholder="TT.MM.JJJJ" required>
         </div>
 
-    <!--</div>
+    </div>
       <div class="col">
-        Column 3
+        <h5>Wiederkehrende Buchung</h5>
+        <input class="form-check-input" type="checkbox" id="weekly" />
+        <label class="form-check-label" for="weekly">
+          wöchentliche Wiederholung (gleicher Wochentag)
+        </label>
       </div>
-    </div>-->
+    </div>
   </div>
 
 
@@ -66,11 +70,12 @@
 
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" [(ngModel)]="this.filter.moreThanTwoMonitors"
-            (ngModelChange)="filterChange()" />
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="twomonitors">
             Mehr als zwei Monitore ({{ predictMoreThanTwoMonitors()}})
           </label>
+          <input class="form-check-input" type="checkbox" [(ngModel)]="this.filter.moreThanTwoMonitors" id="twomonitors"
+            (ngModelChange)="filterChange()" />
+          
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
@@ -81,9 +86,9 @@
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="dockingstation"
             [(ngModel)]="this.filter.dockingstation" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="dockingstation">
             Dockingstation  ({{ predictDockingStation()}})
           </label>
         </div>
@@ -94,17 +99,17 @@
       </div>
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="singleOffice"
             [(ngModel)]="this.filter.singleOffice" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="singleOffice">
             Einzelbüro ({{ predictSingleOffice()}})
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate"
+          <input class="form-check-input" type="checkbox" value="" id="window"
             [(ngModel)]="this.filter.window" (ngModelChange)="filterChange()">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <label class="form-check-label" for="window">
             Fensterplatz ({{ predictWindow()}})
           </label>
         </div>
@@ -126,22 +131,22 @@
 
       <div class="mx-2">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="elevator">
+          <label class="form-check-label" for="elevator">
             Fahrstuhlnähe
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="kasino">
+          <label class="form-check-label" for="kasino">
             Kantine im Gebäude
           </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-          <label class="form-check-label" for="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" value="" id="cafeteria">
+          <label class="form-check-label" for="cafeteria">
             Cafeteria im Gebäude
           </label>
         </div>
