@@ -9,7 +9,7 @@
           <label class="visually-hidden" for="autoSizingInputGroup">City</label>
           <div class="input-group">
             <div class="input-group-text"><i class="bi bi-pin-map"></i></div>
-              <select [(ngModel)]="selectedStates" (change)="onSelectState($any($event.target).value)" class="form-control input-lg" id="country">
+              <select [(ngModel)]="selectedStates" (change)="onSelectState($any($event.target).value)" class="form-select input-lg" id="country">
               <option value = "0" >Wähle dein Bundesland</option>
               <option value = {{item.id}} *ngFor="let item of getCountries()" onchange="onSelectCountry(item.id)">{{item.name}}</option>
               <!-- <option value="1">Frankfurt</option>
@@ -24,7 +24,7 @@
           <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
           <div class="input-group">
             <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
-              <select [(ngModel)]="selectedCities" (change)="onSelectCities($any($event.target).value)" class="form-control input-lg" id="country">
+              <select [(ngModel)]="selectedCities" (change)="onSelectCities($any($event.target).value)" class="form-select input-lg" id="country">
         
               <option value = "0" >Wähle deine Stadt</option>
               <option value = {{item.id}} *ngFor="let item of cities">{{item.name}}</option>
