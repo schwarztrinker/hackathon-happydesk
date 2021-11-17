@@ -8,12 +8,13 @@
         <div class="col-auto col-sm my-2">
           <label class="visually-hidden" for="autoSizingInputGroup">City</label>
           <div class="input-group">
-            <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Wähle deine Stadt</option>
-              <option value="1">Frankfurt</option>
+            <div class="input-group-text"><i class="bi bi-pin-map"></i></div>
+              <select [(ngModel)]="selectedStates" (change)="onSelectState($any($event.target).value)" class="form-control input-lg" id="country">
+              <option value = "0" >Wähle dein Bundesland</option>
+              <option value = {{item.id}} *ngFor="let item of getCountries()" onchange="onSelectCountry(item.id)">{{item.name}}</option>
+              <!-- <option value="1">Frankfurt</option>
               <option value="2">Düsseldorf</option>
-              <option value="3">München</option>
+              <option value="3">München</option> -->
             </select>
           </div>
 
@@ -22,12 +23,28 @@
         <div class="col-auto col-sm  my-2">
           <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
           <div class="input-group">
+            <div class="input-group-text"><i class="bi bi-geo-alt-fill"></i></div>
+              <select [(ngModel)]="selectedCities" (change)="onSelectCities($any($event.target).value)" class="form-control input-lg" id="country">
+        
+              <option value = "0" >Wähle deine Stadt</option>
+              <option value = {{item.id}} *ngFor="let item of cities">{{item.name}}</option>
+              <!-- <option value="1">Trianon</option>
+              <option value="2">FBC</option>
+              <option value="3">Skyper</option> -->
+            </select>
+          </div>
+        </div>
+
+        <div class="col-auto col-sm  my-2">
+          <label class="visually-hidden" for="autoSizingInputGroup"> Building </label>
+          <div class="input-group">
             <div class="input-group-text"><i class="bi bi-house"></i></div>
             <select class="form-select" aria-label="Default select example">
-              <option selected>Wähle deine Gebäude </option>
-              <option value="1">Trianon</option>
+              <option value = "0" >Wähle dein Gebäude </option>
+              <option value = {{item.id}} *ngFor="let item of buildings">{{item.name}}</option>
+              <!-- <option value="1">Trianon</option>
               <option value="2">FBC</option>
-              <option value="3">Skyper</option>
+              <option value="3">Skyper</option> -->
             </select>
           </div>
         </div>
